@@ -1,7 +1,9 @@
+import java.sql.DriverManager;
 import java.util.List;
 public class FileNode implements Element{
     private String name;
     private long size;
+    private DirectoryNode parent;
 
     public FileNode(String name , long size){
         if(size < 0){
@@ -21,5 +23,11 @@ public class FileNode implements Element{
     }
     public List<Element> getChildren(){
         return List.of();
+    }
+    public DirectoryNode getParent(){
+        return parent;
+    }
+    public void setParent(DirectoryNode parent){
+        this.parent = parent;
     }
 }
